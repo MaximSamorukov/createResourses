@@ -9,7 +9,7 @@ const GET_STATIONS_URL = 'http://localhost:5018/api/stations';
 const CREATE_RESOURSE_URL = 'http://localhost:5018/api/resources';
 const ADD_LOCATION_TO_RESOURCE = 'http://localhost:5018/api/resources/location';
 const owner = faker.person.fullName();
-const [_node, _file, login, password, latitude, longitude, speed] = process.argv;
+const [_node, _file, login, password, latitude, longitude, speed, course] = process.argv;
 
 axios.post(LOGIN_URL, {
    login,
@@ -75,7 +75,7 @@ axios.post(LOGIN_URL, {
                  longitude,
                  latitude
                },
-               "course": 0,
+               course: course || 0,
                speed: speed || 0,
             }, {
                   headers: {
